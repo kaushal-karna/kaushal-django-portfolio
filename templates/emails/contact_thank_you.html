@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thanks for connecting with Kaushal</title>
+</head>
+<body style="margin:0;background:#080b16;color:#eef3ff;font-family:Arial,sans-serif;line-height:1.6;">
+    <div style="padding:42px 18px;background:radial-gradient(circle at 15% 0%,#173b58,transparent 42%),#080b16;">
+        <div style="max-width:620px;margin:0 auto;border:1px solid #27354e;border-radius:22px;overflow:hidden;background:#101629;">
+            <div style="padding:28px 32px;border-bottom:1px solid #27354e;">
+                <div style="color:#61e7ff;font-size:12px;font-weight:bold;letter-spacing:3px;">KAUSHAL.DEV</div>
+                <h1 style="margin:24px 0 10px;color:#ffffff;font-size:32px;line-height:1.15;">Thanks for connecting, {{ name }}.</h1>
+                <p style="margin:0;color:#9daac4;font-size:15px;">Your message landed safely in my inbox.</p>
+            </div>
+            <div style="padding:30px 32px;">
+                <p style="margin-top:0;color:#d8e1f2;">I appreciate you taking the time to reach out. I’ll read your message carefully and get back to you as soon as possible.</p>
+                {% if subject %}<div style="margin:24px 0;padding:16px 18px;border-left:3px solid #61e7ff;background:#172038;color:#b9c7dd;"><strong style="color:#61e7ff;">Topic</strong><br>{{ subject }}</div>{% endif %}
+                <p style="color:#9daac4;">In the meantime, you can continue exploring my work and learning journey.</p>
+                <a href="{{ site_url }}/" style="display:inline-block;margin-top:8px;padding:12px 18px;border-radius:10px;background:#61e7ff;color:#07101b;font-weight:bold;text-decoration:none;">Visit my portfolio &rarr;</a>
+            </div>
+            <div style="padding:22px 32px;border-top:1px solid #27354e;color:#72809a;font-size:12px;">Built with curiosity by Kaushal Karn · Biratnagar, Nepal</div>
+        </div>
+    </div>
+</body>
+</html>

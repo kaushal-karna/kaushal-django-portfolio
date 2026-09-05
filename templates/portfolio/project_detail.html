@@ -1,0 +1,23 @@
+{% extends "portfolio/base.html" %}
+{% block title %}{{ project.title }} — Kaushal Karn{% endblock %}
+{% block content %}
+<section id="main-content" class="detail-page section">
+    <div class="container">
+        <a class="back-link" href="{% url 'home' %}#work">← Back to projects</a>
+        <div class="detail-shell glass reveal">
+            <div class="detail-meta"><span>PROJECT / {{ project.get_category_display|upper }}</span><span>CASE STUDY</span></div>
+            <h1>{{ project.title }}</h1>
+            <p class="detail-lead">{{ project.short_description }}</p>
+            <div class="project-tech detail-tech">{% for tech in project.technologies %}<span>{{ tech }}</span>{% endfor %}</div>
+            <div class="detail-content">
+                <div><span class="kicker">OVERVIEW</span><p>{{ project.description }}</p></div>
+                <div class="detail-side">
+                    <span class="kicker">CATEGORY</span><b>{{ project.get_category_display }}</b>
+                    {% if project.github_url %}<a href="{{ project.github_url }}" target="_blank" rel="noreferrer">View on GitHub ↗</a>{% endif %}
+                    {% if project.live_url %}<a href="{{ project.live_url }}" target="_blank" rel="noreferrer">Live project ↗</a>{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

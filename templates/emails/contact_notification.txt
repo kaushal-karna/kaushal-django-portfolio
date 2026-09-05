@@ -1,0 +1,9 @@
+New portfolio contact message
+
+From: {{ name }} <{{ email }}>
+Subject: {{ subject|default:"No subject" }}
+
+Message:
+{{ message }}
+
+Reply directly to this email to contact {{ name }}.

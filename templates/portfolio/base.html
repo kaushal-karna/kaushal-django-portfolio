@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kaushal Karn — BSc CSIT student and aspiring full-stack developer from Nepal.">
+    <link rel="icon" type="image/png" href="{% static 'images/profile-primary.png' %}">
+    <title>{% block title %}Kaushal Karn — Developer Portfolio{% endblock %}</title>
+    <script>
+        (() => {
+            const savedTheme = localStorage.getItem("portfolio-theme");
+            const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            document.documentElement.dataset.theme = savedTheme || systemTheme;
+        })();
+    </script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="noise"></div>
+    <div class="cursor-glow"></div>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="{% url 'home' %}" class="brand" aria-label="Kaushal Karn home">
+                <span class="brand-mark">&lt;/&gt;</span>
+                <span>kaushal<span class="muted">.dev</span></span>
+            </a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="primary-navigation">
+                <a href="{% url 'home' %}#home">01 / Home</a>
+                <a href="{% url 'home' %}#about">02 / About</a>
+                <a href="{% url 'home' %}#skills">03 / Skills</a>
+                <a href="{% url 'home' %}#work">04 / Work</a>
+                <a href="{% url 'home' %}#journey">05 / Journey</a>
+                <a href="{% url 'home' %}#contact">06 / Contact</a>
+            </div>
+            <a class="nav-status" href="{% url 'home' %}#contact"><span></span> Available</a>
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true">☼</span>
+                <span class="theme-label">Light</span>
+            </button>
+        </nav>
+    </header>
+
+    {% if messages %}
+    <div class="toast-stack">
+        {% for message in messages %}
+        <div class="toast {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="brand"><span class="brand-mark">&lt;/&gt;</span> kaushal<span class="muted">.dev</span></div>
+                <p>Built with Django · Designed with curiosity.</p>
+            </div>
+            <div class="footer-meta">
+                <span>Biratnagar, Nepal</span>
+                <span>© {% now "Y" %} Kaushal Karn</span>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

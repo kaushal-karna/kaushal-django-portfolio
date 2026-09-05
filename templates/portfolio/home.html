@@ -1,0 +1,192 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block content %}
+
+<main id="main-content">
+<section id="home" class="hero section">
+    <div class="container hero-grid">
+        <div class="hero-copy reveal">
+            <div class="eyebrow"><span class="pulse-dot"></span> Building the next version of me <span class="eyebrow-year">2026</span></div>
+            <h1>Code.<br><span class="gradient-text">Create.</span><br>Keep learning.</h1>
+            <p class="hero-description">
+                I'm <strong>Kaushal Karn</strong>, a BSc CSIT student and aspiring full-stack developer from Nepal.
+                I turn ideas into practical web experiences with Python, Django and modern frontend technologies.
+            </p>
+            <div class="hero-actions">
+                <a href="#work" class="btn btn-primary">Explore my work <span>↗</span></a>
+                <a href="#contact" class="btn btn-ghost">Let's connect</a>
+            </div>
+            <div class="quick-stats">
+                <div><strong>6th</strong><span>Semester</span></div>
+                <div><strong>∞</strong><span>Curiosity</span></div>
+                <div><strong>01</strong><span>Mission: Build</span></div>
+            </div>
+        </div>
+
+        <div class="hero-card-wrap reveal delay-2">
+            <div class="orbit orbit-a"></div>
+            <div class="orbit orbit-b"></div>
+            <div class="profile-card glass">
+                <div class="card-top"><span>PROFILE / 2026</span><span class="live"><i></i> ONLINE</span></div>
+                <div class="avatar-orb">
+                    <div class="avatar-core">
+                        <img src="{% static 'images/profile-primary.png' %}" alt="Kaushal Karn standing outdoors">
+                    </div>
+                </div>
+                <h2>Kaushal Karn</h2>
+                <p class="role">Aspiring Full-Stack Developer</p>
+                <div class="terminal">
+                    <div class="terminal-bar"><span></span><span></span><span></span><b>~/kaushal</b></div>
+                    <div class="terminal-body">
+                        <p><em>$</em> whoami</p>
+                        <p class="terminal-accent">computer_science_student</p>
+                        <p><em>$</em> stack --primary</p>
+                        <p class="terminal-accent">Python · Django · JavaScript</p>
+                        <p><em>$</em> status</p>
+                        <p class="terminal-ok">learning → building → shipping</p>
+                    </div>
+                </div>
+                <div class="card-tags"><span>NEPAL</span><span>BSC CSIT</span><span>WEB DEV</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-cue"><span></span> Scroll to explore</div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="section-number">02</span>
+            <div><p class="kicker">WHO I AM</p><h2>Curious by nature.<br><span class="gradient-text">Builder by choice.</span></h2></div>
+        </div>
+        <div class="about-grid">
+            <div class="glass about-panel reveal">
+                <p class="lead">I’m a Computer Science student who enjoys building modern web applications, experimenting with technologies, and solving real-world problems through code.</p>
+                <p>My current focus is growing from a strong programming foundation into a capable full-stack developer. Django has become my main playground for understanding backend logic, databases, authentication, CRUD systems and clean web architecture.</p>
+                <p>Outside code, I enjoy running, biking, learning through hands-on projects, and creating programming content that makes technical ideas easier to understand.</p>
+                <div class="about-signature">K<span>.</span>K</div>
+            </div>
+            <div class="about-details reveal delay-1">
+                <div class="detail-card glass"><span>01</span><b>Education</b><p>BSc CSIT · Tribhuvan University</p></div>
+                <div class="detail-card glass"><span>02</span><b>Campus</b><p>Mahendra Morang Aadarsh Multiple Campus</p></div>
+                <div class="detail-card glass"><span>03</span><b>Location</b><p>Biratnagar, Nepal</p></div>
+                <div class="detail-card glass"><span>04</span><b>Current focus</b><p>Django · Backend · Full-stack growth</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="section skills-section">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="section-number">03</span>
+            <div><p class="kicker">THE TOOLKIT</p><h2>Skills I’m <span class="gradient-text">building with.</span></h2></div>
+        </div>
+        <div class="skills-layout">
+            <div class="skill-cloud glass reveal">
+                <div class="cloud-label">TECH / STACK</div>
+                <div class="tech-grid">
+                    {% for skill in skills %}
+                    <div class="skill-chip">
+                        <div class="chip-icon">{{ skill.name|slice:":1" }}</div>
+                        <div><b>{{ skill.name }}</b><small>{{ skill.get_category_display }}</small></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="skill-bars glass reveal delay-1">
+                <div class="cloud-label">CONFIDENCE MAP</div>
+                {% for skill in skills %}
+                <div class="skill-row">
+                    <div><span>{{ skill.name }}</span><small>{{ skill.level }}%</small></div>
+                    <div class="bar"><i style="width: {{ skill.level }}%"></i></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="work" class="section">
+    <div class="container">
+        <div class="section-heading work-heading reveal">
+            <span class="section-number">04</span>
+            <div><p class="kicker">SELECTED WORK</p><h2>Things I’ve <span class="gradient-text">built.</span></h2></div>
+            <p>Practical projects are where concepts turn into confidence.</p>
+        </div>
+        <div class="work-toolbar reveal">
+        <div class="filters" role="group" aria-label="Filter projects by category">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="django">Django</button>
+            <button class="filter" data-filter="web">Web</button>
+            <button class="filter" data-filter="python">Python</button>
+            <button class="filter" data-filter="ml">ML</button>
+        </div>
+        <span class="project-count" aria-live="polite">{{ projects|length }} projects</span>
+        </div>
+        <div class="projects-grid">
+            {% for project in projects %}
+            <article class="project-card glass reveal" data-category="{{ project.category }}">
+                <div class="project-top"><span class="project-index">0{{ forloop.counter }}</span><span class="project-type">{{ project.get_category_display }}</span></div>
+                <div class="project-icon" aria-hidden="true">
+                    {% if project.category == "django" %}Dj{% elif project.category == "ml" %}∿{% elif project.category == "python" %}Py{% else %}&lt;/&gt;{% endif %}
+                </div>
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.short_description }}</p>
+                <div class="project-tech">
+                    {% for tech in project.technologies %}<span>{{ tech }}</span>{% endfor %}
+                </div>
+                <div class="project-links">
+                    <a href="{% url 'project_detail' project.slug %}">View case study <span>↗</span></a>
+                    {% if project.github_url %}<a href="{{ project.github_url }}" target="_blank" rel="noreferrer">GitHub</a>{% endif %}
+                </div>
+                <div class="card-shine"></div>
+            </article>
+            {% empty %}
+            <div class="empty glass">Run <code>python manage.py seed_portfolio</code> to add projects.</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="journey" class="section journey-section">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="section-number">05</span>
+            <div><p class="kicker">THE JOURNEY</p><h2>Still learning.<br><span class="gradient-text">Always moving.</span></h2></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item glass reveal"><span class="time">01</span><div><b>Computer Science Foundation</b><p>Building fundamentals through BSc CSIT: programming, data structures, discrete structures, computer architecture and software development.</p></div></div>
+            <div class="timeline-item glass reveal delay-1"><span class="time">02</span><div><b>Web Development → Django</b><p>Moving from frontend fundamentals into Django, databases, authentication, CRUD applications, relationships, templates and deployment concepts.</p></div></div>
+            <div class="timeline-item glass reveal delay-2"><span class="time">03</span><div><b>Projects → Real Experience</b><p>Learning by shipping: student management, ecommerce, machine learning experiments, WordPress work and personal web projects.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <div class="contact-shell glass reveal">
+            <div class="contact-copy">
+                <p class="kicker">06 / LET’S TALK</p>
+                <h2>Have an idea?<br><span class="gradient-text">Let’s build it.</span></h2>
+                <p>Whether it’s a project, collaboration, internship opportunity, or simply a conversation about technology — send a message.</p>
+                <div class="contact-links">
+                    <a href="mailto:kkarn02977@gmail.com"><span>EMAIL</span> kkarn02977@gmail.com ↗</a>
+                    <a href="https://github.com/kaushal-karna" target="_blank" rel="noreferrer"><span>GITHUB</span> github.com/kaushal-karna ↗</a>
+                </div>
+            </div>
+            <form action="{% url 'contact' %}" method="post" class="contact-form">
+                {% csrf_token %}
+                <div class="form-row">
+                    <label>{{ form.name.label_tag }}{{ form.name }}</label>
+                    <label>{{ form.email.label_tag }}{{ form.email }}</label>
+                </div>
+                <label>{{ form.subject.label_tag }}{{ form.subject }}</label>
+                <label>{{ form.message.label_tag }}{{ form.message }}</label>
+                <button class="btn btn-primary submit-btn" type="submit">Transmit message <span>→</span></button>
+            </form>
+        </div>
+    </div>
+</section>
+</main>
+{% endblock %}
