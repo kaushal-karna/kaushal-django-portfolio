@@ -2,6 +2,10 @@
 
 A futuristic personal portfolio built with Django. The site presents Kaushal Karn's skills, learning journey, projects, and contact form through a responsive glassmorphism interface with dark/light theme selection.
 
+## Project Preview
+
+![Kaushal Karn portfolio landing page](static/images/landing-page-preview.png)
+
 **Documentation navigation:** [Project overview](README.md) · [Command reference](command.md) · [Beginner guide](detail.md) · [Complete reference](complete_detail.md)
 
 For a beginner-friendly setup and deployment walkthrough, read the [complete project guide](detail.md).
